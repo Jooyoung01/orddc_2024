@@ -8,7 +8,7 @@ from datetime import datetime
 
 from ensemble_boxes import weighted_boxes_fusion, nms, non_maximum_weighted, soft_nms
 from orddc_2024.predictors.ultralytics_predictor import UltralyticsPredictor
-from orddc_2024.predictors.rddc2020_predictor import Rddc2020Predictor
+from orddc_2024.predictors.yolov5_predictor import Rddc2020Predictor
 # from orddc_2024.predictors.megvii_predictor import MegviiPredictor
 
 def download_models():
