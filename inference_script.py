@@ -13,10 +13,10 @@ from ensemble_boxes import weighted_boxes_fusion, nms, non_maximum_weighted, sof
 
 def download_models():
     print("Downloading models using gdown...")
-    url = 'https://drive.google.com/uc?id=188Hk5iw5FPnr4DBhawGS8iCARd69q-dF'
+    url = 'https://drive.google.com/uc?id=1-9MUNNU5CBjj1MXT48xUE6OMtRbKqsgQ' # 38
     output_zip = './models.zip'
     subprocess.run(['gdown', url, '--output', output_zip], check=True)
-    shutil.unpack_archive(output_zip, './models')
+    shutil.unpack_archive(output_zip, './')
     os.remove(output_zip)
     print("Model download and extraction complete.")
     
