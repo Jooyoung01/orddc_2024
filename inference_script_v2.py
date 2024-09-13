@@ -8,7 +8,7 @@ from datetime import datetime
 
 from ensemble_boxes import weighted_boxes_fusion, nms, non_maximum_weighted, soft_nms
 from orddc_2024.predictors.ultralytics_predictor import UltralyticsPredictor
-from orddc_2024.predictors.yolov5_predictor import Rddc2020Predictor
+from orddc_2024.predictors.yolov5_predictor import Yolov5Predictor
 # from orddc_2024.predictors.megvii_predictor import MegviiPredictor
 
 def download_models():
@@ -60,14 +60,14 @@ def main(yaml_file, images_path, output_csv):
     config = load_yaml_config(yaml_file)
     ultra_models_params = config['models'].get('yolov8', [])
     yolov5_weights_params = config['models'].get('yolov5', [])
-    yolox_weights_params = config['models'].get('yolox', [])
+    # yolox_weights_params = config['models'].get('yolox', [])
     print("YOLOv8 Model Parameters:", ultra_models_params)
     print("YOLOv5 Model Parameters:", yolov5_weights_params)
-    print("YOLOX Model Parameters:", yolox_weights_params)
+    # print("YOLOX Model Parameters:", yolox_weights_params)
     predictions = {
         'yolov8': (UltralyticsPredictor, ultra_models_params),
-        'yolov5': (Rddc2020Predictor, yolov5_weights_params),
-        'yolox': (MegviiPredictor, yolox_weights_params)
+        'yolov5': (Yolov5Predictor, yolov5_weights_params),
+        # 'yolox': (MegviiPredictor, yolox_weights_params)
     }
     for framework, (predictor_class, model_params) in predictions.items():
         if model_params:
@@ -107,7 +107,7 @@ def main(yaml_file, images_path, output_csv):
             #     print(f"{framework} prediction failed with error: {e}")
     yolov8_predictions, yolov8_images = results.get('yolov8', (([], [], []), []))
     yolov5_predictions, yolov5_images = results.get('yolov5', (([], [], []), []))
-    yolox_predictions, yolox_images = results.get('yolox', (([], [], []), []))
+    # yolox_predictions, yolox_images = results.get('yolox', (([], [], []), []))
     
     end_time = datetime.now()  
     elapsed_time = end_time - start_time  
@@ -116,16 +116,16 @@ def main(yaml_file, images_path, output_csv):
     
     ## Combine predictions
     print("Ensemble Predictions")
-    boxes_list = yolov8_predictions[0] + yolov5_predictions[0] + yolox_predictions[0]
-    scores_list = yolov8_predictions[1] + yolov5_predictions[1] + yolox_predictions[1]
-    labels_list = yolov8_predictions[2] + yolov5_predictions[2] + yolox_predictions[2]
+    boxes_list = yolov8_predictions[0] + yolov5_predictions[0] # + yolox_predictions[0]
+    scores_list = yolov8_predictions[1] + yolov5_predictions[1] # + yolox_predictions[1]
+    labels_list = yolov8_predictions[2] + yolov5_predictions[2] # + yolox_predictions[2]
 
     if yolov8_images:
         images = yolov8_images
     elif yolov5_images:
         images = yolov5_images
-    elif yolox_images:
-        images = yolox_images
+    # elif yolox_images:
+    #     images = yolox_images
     else:
         print("No images available.")
         return
