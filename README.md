@@ -89,13 +89,13 @@ python inference_script_v2_Phase2.py ./images ./output_csv_file_Phase2.csv
 > This script is designed to train YOLOv8 models using various configurations specified in the script. It automates the process of running multiple experiments by looping through different datasets, batch sizes, learning rates, and model types. The script outputs the time taken for each training session and saves the trained model at specified intervals.
 
 ```bash
-cd Train
+cd train_scripts
 python yolo8_run_nano_32.py
 ```
 
 > This script is designed to train YOLOv10 models.
 ```bash
-cd Train
+cd train_scripts
 python yolo10_run_nano_32.py
 ```
 
@@ -119,6 +119,6 @@ python yolo10_run_nano_32.py
 
 > This script is designed to generate CSV files for the **Phase 1 submission** using YOLOv8 and YOLOv10 models.
 ```bash
-cd Train
+cd train_scripts
 python Phase1_script_detect_nano_32.py
 ```
