@@ -57,6 +57,7 @@ Output: ./Phase1_output_Approach23_Conf_0.3.csv
 | YOLOv8(640)     |  ✓   |   ✓   |   ✓    |   ✓   |   ✓    |
 | YOLOv10(640)    |  ✓   |   ✓   |   ✓    |   ✓   |   ✓    |
 > Phase 1 Best Score:
+
 | F1-Score (6 countries)  |
 |:-----------------------:|
 |0.7664                   |
@@ -73,6 +74,7 @@ python inference_script_v2_Phase2.py ./images ./output_csv_file_Phase2.csv
 | YOLOv5(640)     |      |   ✓   |
 | YOLOv8(960)     |   ✓  |       |
 > Phase 1 Best Score:
+
 | F1-Score (6 countries)  | Inference Speed (6 countries) (sec/image) |
 |:-----------------------:|:----------------------------------------:|
 | 0.7017                  | 0.0432                                   |
