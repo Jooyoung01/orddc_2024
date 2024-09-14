@@ -118,6 +118,7 @@ python yolo10_run_nano_32.py
 `image_size`: The size of the input image (e.g., 640 or 960).
 
 > This script is designed to generate CSV files for the **Phase 1 submission** using YOLOv8 and YOLOv10 models.
+(need to update `test_dataset_path` and `weights_output_pairs` with trained model locations)
 ```bash
 cd train_scripts
 python Phase1_script_detect_nano_32.py
