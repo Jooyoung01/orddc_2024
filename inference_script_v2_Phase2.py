@@ -13,8 +13,9 @@ from orddc_2024.predictors.yolov5_predictor import Yolov5Predictor
 
 def download_models():
     print("Downloading models using gdown...")
-    url = 'https://drive.google.com/uc?id=1-1i6SWWMxsPGURhCxVJ8Gq2-V5tYXYBX' # 60
-    output_zip = './models.zip'
+    # url = 'https://drive.google.com/uc?id=1-1i6SWWMxsPGURhCxVJ8Gq2-V5tYXYBX' # 60_bak
+    url = 'https://drive.google.com/uc?id=1-Ae3c_OuEzo9RMrVAs8PUq-SekwCRQlV' # 60
+    output_zip = './models_ph2.zip'
     subprocess.run(['gdown', url, '--output', output_zip], check=True)
     shutil.unpack_archive(output_zip, './')
     os.remove(output_zip)
@@ -171,14 +172,14 @@ if __name__ == "__main__":
         print("Usage: python inference_script_v2.py <images_path> <output_csv>")
         sys.exit(1)
 
-    yaml_file = "./model.yaml"
+    yaml_file = "./model_ph2.yaml"
     images_path = sys.argv[1]
     output_csv = sys.argv[2]
     
     ## Check if the models directory exists, if not download the models
-    if not os.path.exists('./models'):
-        print("Models directory './models' does not exist.")
+    if not os.path.exists('./models_ph2'):
+        print("Models directory './models_ph2' does not exist.")
         download_models()
         
     main(yaml_file, images_path, output_csv)
-    print("Prediction done.")
+    print("models_ph2_Prediction done.")
