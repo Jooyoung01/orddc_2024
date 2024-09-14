@@ -7,7 +7,7 @@ git+https://github.com/Jooyoung01/orddc_2024.git
 #    pip-compile requirements.in
 #
 
---index-url https://download.pytorch.org/whl/cu121
+--extra-index-url https://download.pytorch.org/whl/cu121
 
 beautifulsoup4==4.12.3
     # via gdown
