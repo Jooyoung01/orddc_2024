@@ -8,23 +8,6 @@ git+https://github.com/Jooyoung01/orddc_2024.git
 #
 
 --index-url https://download.pytorch.org/whl/cu121
-torch==2.2.2
-    # via
-    #   -r requirements.in
-    #   torchaudio
-    #   torchvision
-    #   ultralytics
-    #   ultralytics-thop
-torchaudio==2.2.2
-    # via -r requirements.in
-torchvision==0.17.2
-    # via
-    #   -r requirements.in
-    #   ultralytics
-tqdm==4.66.5
-    # via
-    #   gdown
-    #   ultralytics
 
 beautifulsoup4==4.12.3
     # via gdown
@@ -145,3 +128,20 @@ ultralytics-thop==2.0.5
     # via ultralytics
 urllib3==2.2.2
     # via requests
+torch==2.2.2
+    # via
+    #   -r requirements.in
+    #   torchaudio
+    #   torchvision
+    #   ultralytics
+    #   ultralytics-thop
+torchaudio==2.2.2
+    # via -r requirements.in
+torchvision==0.17.2
+    # via
+    #   -r requirements.in
+    #   ultralytics
+tqdm==4.66.5
+    # via
+    #   gdown
+    #   ultralytics
