@@ -18,7 +18,7 @@ class UltralyticsPredictor(Predictor):
         augment = model_param['augment']
         agnostic_nms = model_param['agnostic_nms']
         
-        results = model.predict(images, conf=conf, iou=iou, imgsz=imgsz, augment=augment, agnostic_nms=agnostic_nms)
+        results = model.predict(images, conf=conf, iou=iou, imgsz=imgsz, agnostic_nms=agnostic_nms)
         
         batch_boxes, batch_scores, batch_labels = [], [], []
         
